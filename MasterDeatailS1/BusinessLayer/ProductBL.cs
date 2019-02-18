@@ -70,7 +70,7 @@ namespace MasterDeatailS1.BusinessLayer
                 Race = Product.Races.Human,
                 Bounty = 40000,
                 ImgFileName = "peterquill.jpg",
-                ImgFilePath = "Images/",
+                
                 TimeWanted = DateTime.Parse("March 21, 2019"),
                 Description = "Peter Jason Quill, also known as Star-Lord, was an interstellar adventurer who was abducted from Earth by the Ravagers led by Yondu Udonta at a young age. After his abduction, he began building fame as the legendary outlaw Star-Lord. In 2014, he decided to leave the Ravagers and operate individually, starting by stealing a precious artifact known as the Orb, unintentionally becoming a key player in the Quest for the Orb. Following his arrest, he forged an uneasy alliance with fellow inmates Gamora, Drax the Destroyer, Rocket Raccoon, and Groot, and formed the Guardians of the Galaxy with them a short while later in order to stop Ronan the Accuser from destroying Xandar. After the Battle of Xandar, he left with the other Guardians and he became the leader of the Guardians of the Galaxy."
 

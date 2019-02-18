@@ -78,7 +78,12 @@ namespace MasterDeatailS1.Models
         public string ImgFileName
         {
             get { return _imgFileName; }
-            set { _imgFileName = value; }
+            set
+            {
+                _imgFileName = value;
+                _imgFilePath = @"../Images/" + _imgFileName;
+                
+            }
         }
         public int Id
         {

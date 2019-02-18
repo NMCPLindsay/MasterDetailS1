@@ -30,6 +30,9 @@ namespace MasterDeatailS1.PresentationLayer
             InitializeComponent();
         }
 
-     
+        private void Button_Quit_Click(object sender, RoutedEventArgs e)
+        {
+            _productWindowPresenter.QuitApplication();
+        }
     }
 }

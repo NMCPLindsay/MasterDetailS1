@@ -5,8 +5,189 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MasterDeatailS1.PresentationLayer"
         mc:Ignorable="d"
-        Title="ProductWindowView" Height="450" Width="800">
+        Title="Nova Corps Software, LCC" 
+        Height="500" 
+        Width="900"
+        Background="Azure"
+        ResizeMode="NoResize"
+        WindowStyle="SingleBorderWindow"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Key="HeaderStyle" TargetType="Label">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="DarkBlue"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style x:Key="SubHeaderStyle" TargetType="Label">
+            <Setter Property="Foreground" Value="Blue"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+        <Style x:Key="DetailLabelStyle" TargetType="Label">
+            <Setter Property="Foreground" Value="Blue"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style x:Key="RadioButtonStyle" TargetType="RadioButton">
+            <Setter Property="Foreground" Value="Blue"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Margin" Value="0,0,10,0"/>
+        </Style>
+        <Style x:Key="DetailTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Foreground" Value="DarkBlue"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Style.Triggers>
+                <Trigger Property="IsFocused" Value="True">
+                    <Setter Property="Background" Value="WhiteSmoke" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="MasterTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Foreground" Value="DarkBlue"/>
+            <Setter Property="Background" Value="GhostWhite"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="IsReadOnly" Value="True"/>
+        </Style>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="DarkBlue"/>
+            <Setter Property="Foreground" Value="GhostWhite"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="40"/>
+        </Style>
+    </Window.Resources>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="600"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid
+            Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel
+                Orientation="Vertical"
+                VerticalAlignment="Bottom">
+
+                <StackPanel
+                    Orientation="Horizontal"
+                    Margin="20,0,0,0">
+                    
+                </StackPanel>
+
+                <StackPanel
+                    Orientation="Horizontal"
+                    Margin="20,0,0,0">
+                    
+                </StackPanel>
+
+                <StackPanel
+                    Orientation="Vertical"
+                    Margin="20,0,0,0">
+                    <Image Source="{Binding SelectedProduct.ImgFilePath/ImgFileName}"/>
+
+                </StackPanel>
+
+            </StackPanel>
+
+
+        </Grid>
+
+        <StackPanel
+            Grid.Column="1"
+            Orientation="Vertical">
+            <StackPanel>
+                <Label
+                    Style="{StaticResource HeaderStyle}"
+                    HorizontalAlignment="Center"
+                    Content="{Binding CompanyInfo.Name}"/>
+                <Label
+                    Margin="0,0,0,0"
+                    Padding="0,0,0,0"
+                    FontSize="12"
+                    HorizontalAlignment="Center"
+                    Content="{Binding CompanyInfo.Location}"
+                    Style="{StaticResource SubHeaderStyle}"/>
+                <Label
+                    Margin="0,0,0,0"
+                    Padding="0,0,0,0"
+                    FontSize="12"
+                    HorizontalAlignment="Center"
+                    Content="{Binding CompanyInfo.Affiliation}"
+                    Style="{StaticResource SubHeaderStyle}"/>
+            </StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
         
+                <Image 
+                    Grid.Column="0"
+                    Height="200"
+                    Source="{Binding SelectedProduct.ImgFilePath}"/>
+                <StackPanel
+                    Grid.Column="1"
+                    Margin="10,10,10,10"
+                    Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Name: " Style="{StaticResource DetailLabelStyle}"/>
+                        <TextBox Text="{Binding SelectedProduct.Name}" Style="{StaticResource DetailTextBoxStyle}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Alias(es): " Style="{StaticResource DetailLabelStyle}"/>
+                        <TextBox Text="{Binding SelectedProduct.Alias}" Style="{StaticResource DetailTextBoxStyle}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Race: " Style="{StaticResource DetailLabelStyle}"/>
+                        <TextBox Text="{Binding SelectedProduct.Race}" Style="{StaticResource DetailTextBoxStyle}"/>
+                    </StackPanel>
+                   
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Wanted Since: " Style="{StaticResource DetailLabelStyle}"/>
+                        <TextBox Text="{Binding SelectedProduct.TimeWanted, StringFormat='\{0:MM/dd/yyyy\}'}" Style="{StaticResource DetailTextBoxStyle}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Bounty: " Style="{StaticResource DetailLabelStyle}"/>
+                        <TextBox Text="{Binding SelectedProduct.Bounty, StringFormat='\{0:c\}'}" Style="{StaticResource DetailTextBoxStyle}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="Description: " Style="{StaticResource DetailLabelStyle}"/>
+                        <TextBox
+                            HorizontalAlignment="Left"
+                            Width="300"
+                            Height="120"
+                            TextWrapping="Wrap"
+                            AcceptsReturn="True"
+                            VerticalContentAlignment="Top"
+                            VerticalScrollBarVisibility="Visible"
+                            Text="{Binding SelectedProduct.Description}" 
+                            Style="{StaticResource DetailTextBoxStyle}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+            <StackPanel 
+                Orientation="Horizontal"
+                HorizontalAlignment="Right">
+                <Button 
+                    x:Name="Button_Quit" 
+                    Margin="10,10,20,10"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"           
+                    FontSize="20"
+                    Content="Quit"
+                    Style="{StaticResource ButtonStyle}"
+                    Click="Button_Quit_Click"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
