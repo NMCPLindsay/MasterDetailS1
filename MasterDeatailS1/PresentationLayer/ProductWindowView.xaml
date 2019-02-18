@@ -93,7 +93,7 @@
                 <StackPanel
                     Orientation="Vertical"
                     Margin="20,0,0,0">
-                    <Image Source="{Binding SelectedProduct.ImgFilePath/ImgFileName}"/>
+             
 
                 </StackPanel>
 
