@@ -55,20 +55,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLayer\ProductBL.cs" />
+    <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="PresentationLayer\ProductWindowPresenter.cs" />
+    <Compile Include="PresentationLayer\ProductWindowView.xaml.cs">
+      <DependentUpon>ProductWindowView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -93,6 +92,25 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataAccessLayer\" />
+    <Folder Include="Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\drax.jpg" />
+    <Resource Include="Images\gamora.jpg" />
+    <Resource Include="Images\groot.jpg" />
+    <Resource Include="Images\mantis.jpg" />
+    <Resource Include="Images\peterquill.jpg" />
+    <Resource Include="Images\rocketracoon.jpg" />
+    <Resource Include="Images\yondu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="PresentationLayer\ProductWindowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
