@@ -10,8 +10,6 @@ using MasterDeatailS1;
 using MasterDeatailS1.Models;
 using MasterDeatailS1.PresentationLayer;
 
-
-
 namespace MasterDeatailS1.BusinessLayer
 
 {

@@ -1,19 +1,20 @@
-﻿using System;
+﻿using MasterDeatailS1;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows;
+using System.Windows.Input;
 
 
 namespace MasterDeatailS1.Models
 {
-    public class ProductWindowPresenter : ObservableObject
+    public class ProductWindowPresenter
     {
-        #region ENUMS
 
-
-        #endregion
 
         #region FIELDS
         private Company _companyInfo;
@@ -22,7 +23,7 @@ namespace MasterDeatailS1.Models
 
 
 
-     
+
 
 
 
@@ -50,7 +51,8 @@ namespace MasterDeatailS1.Models
         #region CONSTRUCTORS
         public ProductWindowPresenter(Company company, Product product)
         {
-
+            _selectedProduct = product;
+            _companyInfo = company;
         }
 
 

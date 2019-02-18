@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MasterDeatailS1.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,10 +11,8 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MasterDeatailS1.Models;
-using MasterDeatailS1.BusinessLayer;
-using MasterDeatailS1.PresentationLayer;
 
 namespace MasterDeatailS1.PresentationLayer
 {
@@ -22,31 +21,15 @@ namespace MasterDeatailS1.PresentationLayer
     /// </summary>
     public partial class ProductWindowView : Window
     {
-        #region FIELDS
         ProductWindowPresenter _productWindowPresenter;
 
-
-
-        #endregion
-
-        #region METHODS (pass events to view model)
-
-        private void Button_Quit_Click(object sender, RoutedEventArgs e)
+        public ProductWindowView(ProductWindowPresenter productWindowPresenter)
         {
-            _productWindowPresenter.QuitApplication();
-        }
-
-        #endregion
-
-        #region CONSTRUCTORS
-        public ProductWindowView(ProductWindowPresenter productPresenter)
-        {
-            _productWindowPresenter = productPresenter;
+            _productWindowPresenter = productWindowPresenter;
             DataContext = _productWindowPresenter;
             InitializeComponent();
         }
 
-
-        #endregion
+     
     }
 }
